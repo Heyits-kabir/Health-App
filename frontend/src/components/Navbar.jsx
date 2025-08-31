@@ -1,15 +1,14 @@
 // src/components/Navbar.jsx
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; // 1. Import useAuth
+import { useAuth } from '../context/AuthContext';
 
 function Navbar() {
-  // 2. Get user info and logout function from the context
   const { userInfo, logout } = useAuth();
   const navigate = useNavigate();
 
   const logoutHandler = () => {
-    logout(); // Clear user from context and local storage
-    navigate('/login'); // Redirect to login page
+    logout();
+    navigate('/login');
   };
 
   return (
@@ -22,12 +21,17 @@ function Navbar() {
           <Link to="/" className="text-gray-300 hover:text-white">Home</Link>
           <Link to="/products" className="text-gray-300 hover:text-white">Products</Link>
 
-          {/* 3. Conditionally render links */}
           {userInfo ? (
-            // If user is logged in, show their name (as a link to their profile) and a logout button
             <>
+              {/* Change is here: Added the Admin link */}
+              {userInfo.role === 'admin' && (
+                <Link to="/admin/productlist" className="text-gray-300 hover:text-white font-bold">
+                  Admin
+                </Link>
+              )}
+              
               <Link to="/profile" className="text-gray-300 hover:text-white">
-              {userInfo.username}
+                {userInfo.username}
               </Link>
 
               <button
@@ -38,7 +42,6 @@ function Navbar() {
               </button>
             </>
           ) : (
-            // If user is not logged in, show the Sign In link
             <Link to="/login" className="text-gray-300 hover:text-white">Sign In</Link>
           )}
         </div>

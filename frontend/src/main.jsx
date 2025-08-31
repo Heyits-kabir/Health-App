@@ -16,6 +16,9 @@ import ProfilePage from './pages/ProfilePage.jsx'; // 1. Import ProfilePage
 import PrivateRoute from './components/PrivateRoute.jsx'; // 2. Import PrivateRoute
 import RegistrationPage from './pages/RegistrationPage.jsx';
 import CartPage from './pages/CartPage.jsx';
+import AdminRoute from './components/AdminRoute.jsx';
+import AdminProductListPage from './pages/AdminProductListPage.jsx';
+import AdminProductEditPage from './pages/AdminProductEditPage.jsx';
 
 // Define the application routes
 const router = createBrowserRouter([
@@ -54,6 +57,20 @@ const router = createBrowserRouter([
           {
             path: '/profile', element: <ProfilePage />
           },
+        ],
+      },
+      {
+        path: "/admin",
+        element: <AdminRoute />,
+        children: [
+          { 
+            path: 'productlist',
+            element: <AdminProductListPage />
+          },
+          {
+            path: 'product/:id/edit',
+            element: <AdminProductEditPage/>
+          }
         ],
       },
     ],
