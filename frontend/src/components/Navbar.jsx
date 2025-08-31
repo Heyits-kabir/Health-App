@@ -14,16 +14,17 @@ function Navbar() {
   return (
     <nav className="w-full bg-slate-800 shadow-md">
       <div className="container mx-auto flex items-center justify-between p-4">
+        {/* === CHANGE IS HERE === */}
         <Link to="/" className="text-xl font-bold text-white hover:text-cyan-400">
-          [Your Project Name]
+          MediSource
         </Link>
+        {/* ===================== */}
         <div className="space-x-6 flex items-center">
           <Link to="/" className="text-gray-300 hover:text-white">Home</Link>
           <Link to="/products" className="text-gray-300 hover:text-white">Products</Link>
 
           {userInfo ? (
             <>
-              {/* Change is here: Added the Admin link */}
               {userInfo.role === 'admin' && (
                 <Link to="/admin/productlist" className="text-gray-300 hover:text-white font-bold">
                   Admin
