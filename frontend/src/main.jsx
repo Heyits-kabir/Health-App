@@ -5,6 +5,7 @@ import './index.css';
 
 // 1. Import the AuthProvider
 import { AuthProvider } from './context/AuthContext';
+import { CartProvider } from './context/CartContext.jsx';
 
 import App from './App.jsx';
 import HomePage from './pages/HomePage.jsx';
@@ -14,6 +15,7 @@ import LoginPage from './pages/LoginPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx'; // 1. Import ProfilePage
 import PrivateRoute from './components/PrivateRoute.jsx'; // 2. Import PrivateRoute
 import RegistrationPage from './pages/RegistrationPage.jsx';
+import CartPage from './pages/CartPage.jsx';
 
 // Define the application routes
 const router = createBrowserRouter([
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
         element: <RegistrationPage />
       },
       {
+        path: "cart",
+        element: <CartPage />
+      },
+      {
         path: '',
         element: <PrivateRoute />,
         children: [
@@ -58,7 +64,9 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* 2. Wrap the RouterProvider with the AuthProvider */}
     <AuthProvider>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </AuthProvider>
   </StrictMode>
 );
