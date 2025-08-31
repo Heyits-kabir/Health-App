@@ -1,4 +1,4 @@
-Project Summary: From Start to Finish 🎉
+Project Summary: From Start to Finish 
 1. How I Started
 Starting with a complete backend, I built the frontend from the ground up using React (with Vite) and styled it with Tailwind CSS. I established a scalable project structure and implemented client-side routing with react-router-dom to create a multi-page application.
 
