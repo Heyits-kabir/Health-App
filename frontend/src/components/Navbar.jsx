@@ -27,8 +27,9 @@ function Navbar() {
             // If user is logged in, show their name (as a link to their profile) and a logout button
             <>
               <Link to="/profile" className="text-gray-300 hover:text-white">
-                {userInfo.username}
+              {userInfo.username}
               </Link>
+
               <button
                 onClick={logoutHandler}
                 className="text-gray-300 hover:text-white"

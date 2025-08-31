@@ -13,7 +13,7 @@ import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx'; // 1. Import ProfilePage
 import PrivateRoute from './components/PrivateRoute.jsx'; // 2. Import PrivateRoute
-
+import RegistrationPage from './pages/RegistrationPage.jsx';
 
 // Define the application routes
 const router = createBrowserRouter([
@@ -36,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <LoginPage />,
+      },
+      {
+        path: 'register',
+        element: <RegistrationPage />
       },
       {
         path: '',
